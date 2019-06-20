@@ -47,4 +47,29 @@ public class BlogController {
 
         return ResultUtil.success(obj);
     }
+
+    @RequestMapping(value = "/article/update", method = RequestMethod.POST)
+    public Result updateArticle(@RequestBody Article article) {
+        Object obj = new Object[2];
+        Integer num =  articleService.updateArticle(article);
+        System.out.println(num);
+
+        return ResultUtil.success(num);
+    }
+
+    @RequestMapping(value = "/article/detail", method = RequestMethod.GET)
+    public Result getArticleDetail(@RequestParam("id") Integer id) {
+        Article article =  articleService.getArticleDetail(id);
+        System.out.println(article);
+
+        return ResultUtil.success(article);
+    }
+
+    @RequestMapping(value = "/article/detail_public", method = RequestMethod.GET)
+    public Result getArticleDetailPublic(@RequestParam("id") Integer id) {
+        Article article =  articleService.getArticleDetail(id);
+        System.out.println(article);
+
+        return ResultUtil.success(article);
+    }
 }

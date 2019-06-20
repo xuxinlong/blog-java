@@ -21,11 +21,21 @@ public class ArticleService {
 
     public void addArticle(Article article) {
         Integer id = articleDAO.addArticle(article);
-        System.out.println(id);
+        System.out.println("addArticle" + id);
         return;
     }
     public Integer deleteArticle(Integer id) {
-        return articleDAO.deleteArticle(id);
+        Integer num = articleDAO.deleteArticle(id);
+        return num;
+    }
+
+    public Integer updateArticle(Article article) {
+        Integer num = articleDAO.updateArticle(article);
+        return num;
+    }
+    public Article getArticleDetail(Integer id) {
+        Article article = articleDAO.getArticleDetail(id);
+        return article;
     }
 
 }

@@ -14,6 +14,9 @@
     <select id="getArticleList" resultMap="BaseResultMap">
         SELECT * FROM blogs
     </select>
+    <select id="getArticleDetail" parameterType="java.lang.Integer"  resultMap="BaseResultMap">
+        SELECT * FROM blogs WHERE id=#{id}
+    </select>
     <insert id="addArticle" >
         insert into blogs (type, title, text, user_id, time)
         values (#{type, jdbcType=INTEGER},
@@ -26,5 +29,16 @@
         delete from blogs
         where id = #{id,jdbcType=INTEGER}
     </delete>
+    <update id="updateArticle" parameterType="com.xxl.blog.domain.Article" >
+        update blogs
+        <trim prefix="set" suffixOverrides=",">
+            <if test="type!=null">type=#{type},</if>
+            <if test="title!=null">title=#{title},</if>
+            <if test="text!=null">text=#{text},</if>
+            <if test="user_id!=null">user_id=#{user_id},</if>
+            <if test="time!=null">time=#{time},</if>
+        </trim>
+        where id=#{id}
+    </update>
 
 </mapper>

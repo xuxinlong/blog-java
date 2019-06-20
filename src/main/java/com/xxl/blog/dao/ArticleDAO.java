@@ -10,4 +10,6 @@ public interface ArticleDAO {
    List<Article> getArticleList();
    Integer addArticle(Article article);
    Integer deleteArticle(Integer id);
+   Integer updateArticle(Article article);
+   Article getArticleDetail(Integer id);
 }

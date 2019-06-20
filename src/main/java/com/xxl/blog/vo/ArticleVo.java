@@ -1,6 +1,6 @@
-package com.xxl.blog.domain;
+package com.xxl.blog.vo;
 
-public class Article {
+public class ArticleVo {
     private Long id;
     private String title;
     private String text;
